@@ -1,0 +1,176 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    height: 100vh;
+    background-color: hsl(220,20%,20%);
+}
+.hide {
+    display: none !important;
+}
+.wrapper {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+}
+.title {
+    color:aliceblue;
+    text-transform: capitalize;
+}
+.title-design {
+    color: hsl(0,70%,55%);
+}
+.menu {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.mines {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-right: 1rem;
+}
+.bomb{
+    color: hsl(0,70%,55%);
+    font-size: 1.7rem;
+    position: relative;
+}
+.dimension {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.dim-img {
+    width: 50px;
+    aspect-ratio: 1;
+}
+.input{
+    width: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    border-radius: 0.3rem;
+    box-shadow: 0 0 5px hsl(0,100%,0%,0.75);
+    text-align: center;
+    padding: .5em 0;
+}
+.disable-input {
+    pointer-events: none;
+    background-color: hsl(220,0%,70%,0.35);
+    color: white;
+}
+.btn {
+    margin-right: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: hsl(120,50%,40%);
+    font-size: 1.1rem;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.5em 1.5em;
+    transition: all 750ms ease;
+    box-shadow: 0 0 5px hsl(0,100%,0%,0.75);
+}
+.btn:hover {
+    color: aliceblue;
+    background-color: hsl(120,50%,30%);
+}
+.game-board {
+    min-width: 75vmin;
+    min-height: 75vmin;
+    border-radius: 0.3rem;
+    padding: 1em;
+    display: grid;
+    gap: .5rem;
+    box-shadow: 0 0 5px rgba(0,0,0,0.75);
+    position: relative;
+}
+.box {
+    cursor: pointer;
+    aspect-ratio: 1;
+    background-color: rgb(203, 214, 224);
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    border-radius: 0.2rem;
+    box-shadow: 0 0 5px hsl(0,100%,0%,0.75);
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: all 750ms ease;
+}
+.box:hover {
+    border-radius: 50%;
+}
+.move {
+    background-color: hsl(220,20%,60%);
+}
+.box > span {
+    display: none;
+    pointer-events: none;
+}
+.mine{
+    background-color: hsl(0,50%,50%);
+}
+.select {
+    background-color: hsl(50,50%,50%);
+}
+@media (max-width:800px) {
+    .box{
+        width: 100%;
+    }
+    .game-board {
+        width: 100%;
+    }
+}
+.win::after{
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    background-color: rgba(0,0,0,0.85);
+}
+.win::before {
+    z-index: 1000;
+    position: absolute;
+    content: "You Win!!";
+    color: hsl(120,50%,50%);
+    font-size: 2.5rem;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.lost::after{
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    background-color: rgba(0,0,0,0.85);
+}
+.lost::before {
+    z-index: 1000;
+    position: absolute;
+    content: "Game Over!";
+    width: max-content;
+    color: hsl(0,100%,80%);
+    font-size: 2.5rem;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
